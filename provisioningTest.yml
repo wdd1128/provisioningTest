@@ -60,6 +60,7 @@
       vpc_id: "{{result_vpc.vpc.id}}"
 #      profile: "{{ aws_profile }}"  
       region: "{{aws_region}}"
+      zone: "{{aws_region}}a"
       rules:
         - proto: tcp
           ports:
@@ -74,7 +75,7 @@
       instance_type: "{{instance_type}}"
       image: "{{instance_image}}"
       region: "{{aws_region}}"
-      zone: "{{aws_region}}a"
+
       wait: no
       group: allow tcp
       count: 1
