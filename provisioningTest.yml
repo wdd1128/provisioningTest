@@ -29,7 +29,7 @@
       vpc_id: "{{result_vpc.vpc.id}}"
       cidr: "{{subnet_cidr_block}}"
       region: "{{aws_region}}"
-      az: "{{aws_region}}a"
+      az: "a"
       tags:
         Name: public
     register: result_subnet
@@ -75,7 +75,6 @@
       instance_type: "{{instance_type}}"
       image: "{{instance_image}}"
       region: "{{aws_region}}"
-
       wait: no
       group: allow tcp
       count: 1
