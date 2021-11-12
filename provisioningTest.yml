@@ -29,7 +29,7 @@
       vpc_id: "{{result_vpc.vpc.id}}"
       cidr: "{{subnet_cidr_block}}"
       region: "{{aws_region}}"
-      az: "{{aws_region.availability_zones[0].zone_name}}"
+      az: ap-northeast-2a
       tags:
         Name: public
     register: result_subnet
