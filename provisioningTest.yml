@@ -1,0 +1,34 @@
+---
+
+- name: simple-provisioning
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    aws_region: ap-northeast-1
+    vpc_name: simple-vpc
+    vpc_cidr_block: 10.210.0.0/16
+    subnet_cidr_block: 10.210.1.0/24
+    instance_image: ami-06098fd00463352b6
+    ec2_key_name: devos-YYK
+    instance_type: t2.micro
+  tasks:
+  - name: create VPC
+    ec2_vpc_net:
+      name: "{{vpc_name}}"
+      cidr_block: "{{vpc_cidr_block}}"
+      region: "{{aws_region}}"
+      tags:
+        Name: "{{vpc_name}}"
+      tenancy: default
+    register: result_vpc
+    
+  - name: Create subnet 
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{result_vpc.vpc.id}}"
+      cidr: "{{subnet_cidr_block}}"
+      region: "{{aws_region}}"
+      tags:
+        Name: public
+    register: result_subnet
