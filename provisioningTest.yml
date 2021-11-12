@@ -29,6 +29,7 @@
       vpc_id: "{{result_vpc.vpc.id}}"
       cidr: "{{subnet_cidr_block}}"
       region: "{{aws_region}}"
+      az: "{{aws_region}}a"
       tags:
         Name: public
     register: result_subnet
@@ -60,7 +61,6 @@
       vpc_id: "{{result_vpc.vpc.id}}"
 #      profile: "{{ aws_profile }}"  
       region: "{{aws_region}}"
-      zone: "{{aws_region}}a"
       rules:
         - proto: tcp
           ports:
