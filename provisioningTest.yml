@@ -5,12 +5,12 @@
   connection: local
   gather_facts: false
   vars:
-    aws_region: ap-northeast-1
+    aws_region: ap-northeast-2
     vpc_name: simple-vpc
     vpc_cidr_block: 10.210.0.0/16
     subnet_cidr_block: 10.210.1.0/24
-    instance_image: ami-06098fd00463352b6
-    ec2_key_name: devos-YYK
+    instance_image: ami-0a5a6128e65676ebb
+    ec2_key_name: devos
     instance_type: t2.micro
   tasks:
   - name: create VPC
