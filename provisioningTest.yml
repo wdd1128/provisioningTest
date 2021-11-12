@@ -74,6 +74,7 @@
       instance_type: "{{instance_type}}"
       image: "{{instance_image}}"
       region: "{{aws_region}}"
+      zone: "{{aws_region}}a"
       wait: no
       group: allow tcp
       count: 1
